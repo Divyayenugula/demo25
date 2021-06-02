@@ -1,4 +1,4 @@
 #!/bin/bash
 
-date
-echo "welcome to git section"
+
+echo "dev1 updated version 1.0 files"
