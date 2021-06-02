@@ -1,4 +1,4 @@
 #!/bin/bash
 
-date
-echo "welcome to git section"
+
+echo "dev2 update version2.0 changes"
