@@ -1,3 +1,4 @@
+
 pipeline {
    agent any 
    stages{
@@ -15,12 +16,14 @@ pipeline {
      
      }
 
-     stage('Deploy to Tomcat'){
-
-       sshagent(['tomcat-ec2-id']) {
-          sh 'sudo scp -o StrictHostKeyChecking=no target/*.war 172.31.43.104:/var/lib/tomcat8/webapps/'
+     stage('Deploy to Tomcat'){ 
+     
+        steps {   
+       sshagent(['tomcat-ec2-id']) { 
+          sh 'sudo scp -o StrictHostKeyChecking=no target/*.war 172.31.43.104:/var/lib/tomcat8/webapps/' 
+       } 
        }
-    }
+    } 
 
 
 
