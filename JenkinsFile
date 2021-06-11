@@ -11,7 +11,8 @@ pipeline {
 
      stage('Build stage'){
        steps {
-          sh '  mvn clean package ' 
+          sh '  mvn clean package '
+          sh 'mv target/*.war target/webapp'
        }
      
      }
@@ -20,7 +21,7 @@ pipeline {
      
         steps {   
        sshagent(['tomcat-ec2-id']) { 
-          sh 'mv target/*.war webapp'
+          
           sh 'scp -o StrictHostKeyChecking=no target/webapp ubuntu@172.31.43.104:/var/lib/tomcat8/webapps/' 
        } 
        }
