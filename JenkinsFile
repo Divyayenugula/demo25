@@ -1,10 +1,17 @@
 pipeline {
    agent any 
    stages{
-     stage('Git checkout from SCM') {
+     stage('Git checkout') {
      steps{
             git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/demodevops2/devopscls25repo.git'
             }
+     
+     }
+
+     stage('Build stage'){
+       steps {
+          sh '  mvn clean package ' 
+       }
      
      }
 
