@@ -20,7 +20,8 @@ pipeline {
      
         steps {   
        sshagent(['tomcat-ec2-id']) { 
-          sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@172.31.43.104:/var/lib/tomcat8/webapps/' 
+          sh 'mv target/*.war webapp'
+          sh 'scp -o StrictHostKeyChecking=no target/webapp ubuntu@172.31.43.104:/var/lib/tomcat8/webapps/' 
        } 
        }
     } 
