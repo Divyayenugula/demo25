@@ -1,0 +1,15 @@
+pipeline {
+   agent any 
+   stages{
+     stage('Git checkout from SCM') {
+     steps{
+            git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/demodevops2/devopscls25repo.git'
+            }
+     
+     }
+
+
+
+   
+   }
+  }
