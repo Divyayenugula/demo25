@@ -12,7 +12,7 @@ pipeline {
      stage('Build stage'){
        steps {
           sh '  mvn clean package '
-          sh 'mv target/*.war target/webapp'
+          sh 'mv target/*.war target/myweb.war'
        }
      
      }
