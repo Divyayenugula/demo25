@@ -1,29 +1,43 @@
-pipeline{
-  agent any
-  tools {
-    maven 'Maven3'
-  }
-  stages{
-    stage("Git Checkout"){
-      steps{
-         git branch: 'master', credentialsId: 'github-ID', url: 'https://github.com/demodevops2/java-hello-world-webapp.git'
-}
-}
-   stage("Maven Build"){
+pipeline {
+   agent any
+   stages{
+    stage('Git Checkout from SCM') {
      steps{
-         sh "mvn clean package"
-         sh "mv target/*.war target/myweb.war"
-}
+          git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/Divyayenugula/demo25.git'
+     }
+     
+
+   }
+
+ }
+
+
 }
 
-    stage("Deploy-war-file"){
-      steps{
-        sshagent(['Tomcat-EC2-ID']) {
-          sh "scp -o StrictHostKeyChecking=no target/myweb.war ubuntu@172.31.5.222:/var/lib/tomcat9/webapps"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-}
-}
-}
 
-}
-}
+
+
+
+
+
